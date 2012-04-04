@@ -1,5 +1,5 @@
-#IPL5 ScoreBoard
-IPL5 Scoreboard is a little app written in ruby to show score of current or last IPL Match.
+#IPL5 Live Score
+IPL5 Live Score is a little app written in ruby to show score of current or last IPL Match.
 It is made very simple and can be added to conky to show score continuosly
 
 ##Copyrights and Author
