@@ -13,10 +13,7 @@ def getMatchName()
         #print i.to_s + sch["schedule"][i]["matchState"]+"\n"
         break if i >= MAX_MATCHES
     end
-    if(sch["schedule"][i]["matchState"].eql? "L")
-        i-=1;
-    end
-    #print sch["schedule"][i]["matchState"]+"\n"
+    
     if sch["schedule"][i]["matchState"].eql? "U"
         return sch["schedule"][i-1]["matchId"]["name"]
     else
