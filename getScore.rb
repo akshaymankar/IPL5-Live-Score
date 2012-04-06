@@ -13,7 +13,7 @@ playing2nd=score["matchInfo"]["battingOrder"][1]
 print score["matchInfo"]["teams"][playing1st]["team"]["abbreviation"] + ":" + score["innings"][0]["scorecard"]["runs"].to_s + '/' + score["innings"][0]["scorecard"]["wkts"].to_s + "(" + score["innings"][0]["overProgress"] + ")\n"
 print score["matchInfo"]["teams"][playing2nd]["team"]["abbreviation"] + ":" 
 if !score["innings"][1].nil?
-    print + score["innings"][1]["scorecard"]["runs"].to_s + '/' + score["innings"][1]["scorecard"]["wkts"].to_s + "(" + score["innings"][0]["overProgress"] + ")"
+    print score["innings"][1]["scorecard"]["runs"].to_s + '/' + score["innings"][1]["scorecard"]["wkts"].to_s + "(" + score["innings"][0]["overProgress"] + ")"
 end
 print "\n"
 print score["matchInfo"]["matchSummary"]
