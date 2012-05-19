@@ -48,7 +48,7 @@ if ARGV[0] == "bat"
 		end
 		print "\n"+score["matchInfo"]["teams"][curTeam]["team"]["fullname"]+"\n"
 		for player in batStat
-			print "#{getPlayerName(score["matchInfo"]["teams"][curTeam]["players"],player["playerId"])}\t #{player["r"]} (#{player["b"]}) #{player["4"]}x4 #{player["6"]}x6"
+			print "#{getPlayerName(score["matchInfo"]["teams"][curTeam]["players"],player["playerId"])} #{player["r"]} (#{player["b"]}) #{player["4"]}x4 #{player["6"]}x6"
 			if player["mod"].nil?
 				print "\tNot Out\n"
 			else
@@ -70,7 +70,7 @@ if ARGV[0] == "bowl"
 		end
 		print "\n"+score["matchInfo"]["teams"][curTeam]["team"]["fullname"]+"\n"
 		for player in bowlStat
-			print "#{getPlayerName(score["matchInfo"]["teams"][curTeam]["players"],player["playerId"])}\t #{player["r"]}/#{player["w"]} (#{player["ov"]}) \n"
+			print "#{getPlayerName(score["matchInfo"]["teams"][curTeam]["players"],player["playerId"])} #{player["r"]}/#{player["w"]} (#{player["ov"]}) \n"
 		end
 	end
 end
