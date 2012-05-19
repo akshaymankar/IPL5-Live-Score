@@ -37,12 +37,12 @@ if ARGV[0] == "bat"
 			break
 		end
 		batStat=score["innings"][i]["scorecard"]["battingStats"]
-		print "\n"+score["matchInfo"]["teams"][playing1st]["team"]["fullname"]+"\n"
 		if i==0
 			curTeam = playing1st
 		else
 			curTeam = playing2nd
 		end
+		print "\n"+score["matchInfo"]["teams"][curTeam]["team"]["fullname"]+"\n"
 		for player in batStat
 			print "#{getPlayerName(score["matchInfo"]["teams"][curTeam]["players"],player["playerId"])}\t #{player["r"]} (#{player["b"]}) #{player["4"]}x4 #{player["6"]}x6\n"
 		end
