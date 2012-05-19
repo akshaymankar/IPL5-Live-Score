@@ -48,5 +48,20 @@ if ARGV[0] == "bat"
 		end
 	end
 end
-
-
+if ARGV[0] == "bowl"
+	for i in 0..1
+		if score["innings"][i].nil?
+			break
+		end
+		bowlStat=score["innings"][i]["scorecard"]["bowlingStats"]
+		if i==0
+			curTeam = playing2nd
+		else
+			curTeam = playing1st
+		end
+		print "\n"+score["matchInfo"]["teams"][curTeam]["team"]["fullname"]+"\n"
+		for player in bowlStat
+			print "#{getPlayerName(score["matchInfo"]["teams"][curTeam]["players"],player["playerId"])}\t #{player["r"]}/#{player["w"]} (#{player["ov"]}) \n"
+		end
+	end
+end
