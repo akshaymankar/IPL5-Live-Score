@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require 'json'
 require 'zlib' 
 require 'net/http'
@@ -19,4 +20,4 @@ if !score["innings"][1].nil?
     print score["innings"][1]["scorecard"]["runs"].to_s + '/' + score["innings"][1]["scorecard"]["wkts"].to_s + " (" + score["innings"][1]["overProgress"] + ")"
 end
 print "\n"
-#print score["matchInfo"]["matchSummary"]
+print score["matchInfo"]["matchSummary"] + "\n"
