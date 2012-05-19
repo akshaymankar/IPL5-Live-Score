@@ -12,7 +12,11 @@ def getPlayerName(players,id)
 			break
 		end
 	end
-	player["names"][1]
+	name = player["names"][1]
+	if(name.length < 20)
+		name.concat(" "*(20 - name.length))
+	end
+	name
 end
 
 source=openUriHandleGzip('data.iplt20.com','/core/cricket/2012/ipl2012/' + getMatchName() + '/scoring.js')
@@ -44,7 +48,12 @@ if ARGV[0] == "bat"
 		end
 		print "\n"+score["matchInfo"]["teams"][curTeam]["team"]["fullname"]+"\n"
 		for player in batStat
-			print "#{getPlayerName(score["matchInfo"]["teams"][curTeam]["players"],player["playerId"])}\t #{player["r"]} (#{player["b"]}) #{player["4"]}x4 #{player["6"]}x6\n"
+			print "#{getPlayerName(score["matchInfo"]["teams"][curTeam]["players"],player["playerId"])}\t #{player["r"]} (#{player["b"]}) #{player["4"]}x4 #{player["6"]}x6"
+			if player["mod"].nil?
+				print "\tNot Out\n"
+			else
+				print "\t#{player["mod"]["text"]}\n"
+			end
 		end
 	end
 end
