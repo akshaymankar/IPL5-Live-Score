@@ -1,55 +1,60 @@
-#IPL5 Live Score
-IPL5 Live Score is a little app written in ruby to show score of current or last IPL Match.  
+#World T20 2012 Live Score
+World T20 2012 Live Score is a little app written in ruby to show score of current or last World T20 Match.
 It is made very simple and can be added to conky to show score continuosly
 
 ##Sample Usage
 ###Get Only Score
     $ ./getScore.rb  
-    KKR : 136/4 (20)
-    PWI : 86/5 (16.1)
+    IND : 170/4 (20)
+    ENG : 80/10 (14.4)
     
 ###Get Score and Batting Stats
     $ ./getScore.rb bat
-    KKR : 136/4 (20)
-    PWI : 86/5 (16.1)
-    
-    Kolkata Knight Riders
-    B McCullum           41 (43) 5x4 0x6	c Jesse Ryder b Wayne Parnell
-    G Gambhir            10 (12) 1x4 0x6	c Ashish Nehra b Wayne Parnell
-    J Kallis             13 (18) 1x4 0x6	b Michael Clarke
-    S Al Hassan          42 (30) 3x4 2x6	b Bhuvneshwar Kumar
-    M Tiwary             8 (9) 0x4 0x6	Not Out
-    Y Pathan             15 (10) 2x4 0x6	Not Out
-    
-    Pune Warriors India
-    R Uthappa            8 (8) 1x4 0x6	c Manoj Tiwary b Iqbal Abdulla
-    J Ryder              22 (24) 0x4 2x6	b Yusuf Pathan
-    M Clarke             14 (20) 0x4 0x6	st Brendon McCullum b Yusuf Pathan
-    S Ganguly            4 (7) 0x4 0x6	lbw Shakib Al Hassan
-    A Majumdar           17 (22) 0x4 0x6	st Brendon McCullum b Shakib Al Hassan
-    C Ferguson           11 (15) 0x4 0x6	Not Out
-    H Singh              1 (1) 0x4 0x6	Not Out
+    IND : 170/4 (20)
+    ENG : 80/10 (14.4)
+
+
+    India
+    G Gambhir            45 (38) x4 x6	c Craig Kieswetter b Steven Finn
+    I Pathan             8 (8) x4 x6	b Steven Finn
+    V Kohli              40 (32) x4 x6	c Jonny Bairstow b Graeme Swann
+    RG Sharma            55 (33) x4 x6	Not Out
+    MS Dhoni             9 (8) x4 x6	c Alex Hales b Jade Dernbach
+    S Raina              1 (1) x4 x6	Not Out
+
+    England
+    C Kieswetter         35 (25) x4 x6	c Virat Kohli b Piyush Chawla
+    A Hales              0 (2) x4 x6	b Irfan Pathan
+    L Wright             6 (4) x4 x6	lbw Irfan Pathan
+    E Morgan             2 (6) x4 x6	b Harbhajan Singh
+    J Bairstow           1 (8) x4 x6	b Piyush Chawla
+    J Buttler            11 (12) x4 x6	b Harbhajan Singh
+    T Bresnan            1 (8) x4 x6	c Gautam Gambhir b Harbhajan Singh
+    S Broad              3 (3) x4 x6	c Gautam Gambhir b Ashok Dinda
+    G Swann              0 (3) x4 x6	st MS Dhoni b Harbhajan Singh
+    S Finn               8 (10) x4 x6	Not Out
+    J Dernbach           12 (7) x4 x6	run out (Lakshmipathy Balaji)
     
 ###Get Score and Bowling Stats    
     $ ./getScore.rb bowl
-    KKR : 136/4 (20)
-    PWI : 86/5 (16.1)
-    
-    Pune Warriors India
-    A Nehra              35/0 (4) 
-    A Murtaza            11/0 (2) 
-    W Parnell            18/2 (4) 
-    B Kumar              23/1 (4) 
-    M Clarke             27/1 (4) 
-    S Ganguly            17/0 (2) 
-    
-    Kolkata Knight Riders
-    L Balaji             16/0 (3) 
-    S Al Hassan          18/2 (4) 
-    I Abdulla            20/1 (3) 
-    S Narine             9/0 (2) 
-    Y Pathan             11/3 (2.1) 
-    R Bhatia             9/0 (2)
+    IND : 170/4 (20)
+    ENG : 80/10 (14.4)
+
+
+    England
+    S Finn               33/2 (4)
+    J Dernbach           45/1 (4)
+    S Broad              36/0 (4)
+    T Bresnan            35/0 (4)
+    G Swann              17/1 (4)
+
+    India
+    I Pathan             17/2 (3)
+    L Balaji             10/0 (1)
+    A Dinda              26/1 (2)
+    H Singh              12/4 (4)
+    P Chawla             13/2 (4)
+    Y Singh              2/0 (0.4)
 
 ##Copyrights and Author
 Copyright (C) 2012 Akshay Mankar <itsakshaymankar@gmail.com>  
