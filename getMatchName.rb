@@ -1,16 +1,14 @@
 require_relative 'openUriHandleGzip'
 require 'json'
-
-MAX_MATCHES=72
+require_relative 'constants'
 
 def getMatchName()
-    source=openUriHandleGzip('data.iplt20.com','/core/cricket/2012/ipl2012/matchSchedule2.js')
+    source=openUriHandleGzip(HOST,BASE_PATH_FOR_TOURNAMENT+MATCH_SCHEDULE_FILE)
     sch_json=source.sub(/onMatchSchedule\(/,'').sub!(/\);/,'')
     sch=JSON.parse(sch_json)
     i=0
     while sch["schedule"][i]["matchState"].eql? "C" do
         i+=1
-        #print i.to_s + sch["schedule"][i]["matchState"]+"\n"
         break if i >= MAX_MATCHES
     end
     

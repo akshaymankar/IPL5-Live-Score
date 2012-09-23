@@ -5,6 +5,7 @@ require 'net/http'
 
 require_relative 'openUriHandleGzip'
 require_relative 'getMatchName'
+require_relative 'constants'
 
 def getPlayerName(players,id)
 	for player in players
@@ -18,8 +19,7 @@ def getPlayerName(players,id)
 	end
 	name
 end
-
-source=openUriHandleGzip('data.iplt20.com','/core/cricket/2012/ipl2012/' + getMatchName() + '/scoring.js')
+source=openUriHandleGzip(HOST, BASE_PATH_FOR_TOURNAMENT + getMatchName() + SCORING_FILE)
 score_json=source.sub(/onScoring\(/,'').sub(/\);/,'')
 score=JSON.parse(score_json)
 if score["innings"].nil?
