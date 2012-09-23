@@ -1,2 +1,5 @@
 #Swap Files
 *.swp
+
+#Idea folder
+.idea/**
