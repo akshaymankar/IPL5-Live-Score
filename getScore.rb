@@ -3,7 +3,6 @@ require 'json'
 require 'zlib' 
 require 'net/http'
 
-require_relative 'openUriHandleGzip'
 require_relative 'getMatchName'
 
 def getPlayerName(players,id)
@@ -19,7 +18,8 @@ def getPlayerName(players,id)
 	name
 end
 
-source=openUriHandleGzip('data.iplt20.com','/core/cricket/2012/ipl2012/' + getMatchName() + '/scoring.js')
+url = 'http://dynamic.pulselive.com/dynamic/data/core/cricket/2012/ipl2013/' + getMatchName() + '/scoring.js'
+source = Net::HTTP.get(URI.parse(url))
 score_json=source.sub(/onScoring\(/,'').sub(/\);/,'')
 score=JSON.parse(score_json)
 if score["innings"].nil?
@@ -46,7 +46,7 @@ if ARGV[0] == "bat"
 		else
 			curTeam = playing2nd
 		end
-		print "\n"+score["matchInfo"]["teams"][curTeam]["team"]["fullname"]+"\n"
+		print "\n"+score["matchInfo"]["teams"][curTeam]["team"]["fullName"]+"\n"
 		for player in batStat
 			print "#{getPlayerName(score["matchInfo"]["teams"][curTeam]["players"],player["playerId"])} #{player["r"]} (#{player["b"]}) #{player["4"]}x4 #{player["6"]}x6"
 			if player["mod"].nil?
@@ -68,7 +68,7 @@ if ARGV[0] == "bowl"
 		else
 			curTeam = playing1st
 		end
-		print "\n"+score["matchInfo"]["teams"][curTeam]["team"]["fullname"]+"\n"
+		print "\n"+score["matchInfo"]["teams"][curTeam]["team"]["fullName"]+"\n"
 		for player in bowlStat
 			print "#{getPlayerName(score["matchInfo"]["teams"][curTeam]["players"],player["playerId"])} #{player["r"]}/#{player["w"]} (#{player["ov"]}) \n"
 		end
