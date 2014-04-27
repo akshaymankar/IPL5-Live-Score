@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'json'
-require 'zlib' 
+require 'zlib'
 require 'net/http'
 
 require_relative 'getMatchName'
@@ -18,7 +18,7 @@ def getPlayerName(players,id)
 	name
 end
 
-url = 'http://dynamic.pulselive.com/dynamic/data/core/cricket/2012/ipl2013/' + getMatchName() + '/scoring.js'
+url = 'http://dynamic.pulselive.com/dynamic/data/core/cricket/2012/ipl2014/' + getMatchName() + '/scoring.js'
 source = Net::HTTP.get(URI.parse(url))
 score_json=source.sub(/onScoring\(/,'').sub(/\);/,'')
 score=JSON.parse(score_json)
@@ -28,7 +28,7 @@ end
 playing1st=score["matchInfo"]["battingOrder"][0]
 playing2nd=score["matchInfo"]["battingOrder"][1]
 print score["matchInfo"]["teams"][playing1st]["team"]["abbreviation"] + " : " + score["innings"][0]["scorecard"]["runs"].to_s + '/' + score["innings"][0]["scorecard"]["wkts"].to_s + " (" + score["innings"][0]["overProgress"] + ")\n"
-print score["matchInfo"]["teams"][playing2nd]["team"]["abbreviation"] + " : " 
+print score["matchInfo"]["teams"][playing2nd]["team"]["abbreviation"] + " : "
 if !score["innings"][1].nil?
     print score["innings"][1]["scorecard"]["runs"].to_s + '/' + score["innings"][1]["scorecard"]["wkts"].to_s + " (" + score["innings"][1]["overProgress"] + ")"
 end
