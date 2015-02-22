@@ -4,7 +4,7 @@ require 'net/http'
 MAX_MATCHES=72
 
 def getMatchName()
-    source = Net::HTTP.get(URI.parse('http://dynamic.pulselive.com/dynamic/data/core/cricket/2012/ipl2013/matchSchedule2.js'))
+    source = Net::HTTP.get(URI.parse('http://dynamic.pulselive.com/dynamic/data/core/cricket/2012/cwc-2015/matchSchedule2.js'))
     sch_json=source.sub(/onMatchSchedule\(/,'').sub!(/\);/,'')
     sch=JSON.parse(sch_json)
     i=0

@@ -18,7 +18,7 @@ def getPlayerName(players,id)
 	name
 end
 
-url = 'http://dynamic.pulselive.com/dynamic/data/core/cricket/2012/ipl2013/' + getMatchName() + '/scoring.js'
+url = 'http://dynamic.pulselive.com/dynamic/data/core/cricket/2012/cwc-2015/' + getMatchName() + '/scoring.js'
 source = Net::HTTP.get(URI.parse(url))
 score_json=source.sub(/onScoring\(/,'').sub(/\);/,'')
 score=JSON.parse(score_json)
