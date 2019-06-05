@@ -18,17 +18,19 @@ def getPlayerName(players,id)
 	name
 end
 
-url = 'http://dynamic.pulselive.com/dynamic/data/core/cricket/2012/cwc-2015/' + getMatchName() + '/scoring.js'
+# url = 'http://dynamic.pulselive.com/dynamic/data/core/cricket/2012/cwc-2015/' + getMatchName() + '/scoring.js'
+url = 'https://cricketapi-icc.pulselive.com/fixtures/8199/scoring'
 source = Net::HTTP.get(URI.parse(url))
 score_json=source.sub(/onScoring\(/,'').sub(/\);/,'')
 score=JSON.parse(score_json)
-if score["innings"].nil?
-    print score["matchInfo"][0]["team"]["abbreviation"] + "\n" + score["matchInfo"][1]["team"]["abbreviation"]+"\n"
+if score["innings"].nil? || score["innings"].empty?
+    print score["matchInfo"]["teams"][0]["team"]["abbreviation"] + " vs " + score["matchInfo"]["teams"][1]["team"]["abbreviation"]+" match not started.\n"
+    exit
 end
 playing1st=score["matchInfo"]["battingOrder"][0]
 playing2nd=score["matchInfo"]["battingOrder"][1]
 print score["matchInfo"]["teams"][playing1st]["team"]["abbreviation"] + " : " + score["innings"][0]["scorecard"]["runs"].to_s + '/' + score["innings"][0]["scorecard"]["wkts"].to_s + " (" + score["innings"][0]["overProgress"] + ")\n"
-print score["matchInfo"]["teams"][playing2nd]["team"]["abbreviation"] + " : " 
+print score["matchInfo"]["teams"][playing2nd]["team"]["abbreviation"] + " : "
 if !score["innings"][1].nil?
     print score["innings"][1]["scorecard"]["runs"].to_s + '/' + score["innings"][1]["scorecard"]["wkts"].to_s + " (" + score["innings"][1]["overProgress"] + ")"
 end
